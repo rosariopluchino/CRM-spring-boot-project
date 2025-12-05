@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ClientModelDTO {
+public class CreateClientModelDTO {
     @NotBlank
     String name;
 
