@@ -37,6 +37,7 @@ public class ClientService {
     public ResponseClientModelDTO createClient(CreateClientModelDTO client) {
         //DTO -> Model
         ClientModel persona = new ClientModel();
+        persona.setEmail(client.getEmail());
         persona.setName(client.getName());
         persona.setSurname(client.getSurname());
 
