@@ -11,7 +11,9 @@ import com.example.myCRM.dto.CreateClientModelDTO;
 import com.example.myCRM.dto.ResponseClientModelDTO;
 import com.example.myCRM.service.ClientService;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -35,6 +37,12 @@ public class ClientController {
     public ResponseEntity<ResponseClientModelDTO> createClient(@RequestBody CreateClientModelDTO dto) {
         ResponseClientModelDTO response = service.createClient(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteClient(@PathVariable Long id) {
+        service.deleteClient(id);
+        return ResponseEntity.status(HttpStatus.OK).body("utente cancellato correttamente");
     }
 
 }
