@@ -34,6 +34,17 @@ public class ClientService {
         return listClientDTO;
     }
 
+    public ResponseClientModelDTO getClientById(Long id) {
+        ClientModel client = repo.getClientById(id)
+                                 .orElseThrow();
+        ResponseClientModelDTO dto = new ResponseClientModelDTO();
+        dto.setId(client.getId());
+        dto.setName(client.getName());
+        dto.setSurname(client.getSurname());
+        dto.setEmail(client.getEmail());
+        return dto;  
+    }
+
     public ResponseClientModelDTO createClient(CreateClientModelDTO client) {
         //DTO -> Model
         ClientModel persona = new ClientModel();
