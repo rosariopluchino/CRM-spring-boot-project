@@ -34,6 +34,12 @@ public class ClientController {
         List<ResponseClientModelDTO> clients = service.getAllClients();
         return ResponseEntity.ok(clients);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseClientModelDTO> getClientById(@PathVariable Long id) {
+        ResponseClientModelDTO client = service.getClientById(id);
+        return ResponseEntity.ok(client);
+    }
     
     @PostMapping
     public ResponseEntity<ResponseClientModelDTO> createClient(@RequestBody @Valid CreateClientModelDTO dto) {
